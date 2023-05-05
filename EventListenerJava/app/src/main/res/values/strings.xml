@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EventListenerJava</string>
+    <string name="editMessage">Enter a word</string>
+
+</resources>

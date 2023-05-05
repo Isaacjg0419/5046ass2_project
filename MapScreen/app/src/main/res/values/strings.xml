@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MapScreen</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiaXNhYWNnankiLCJhIjoiY2xoN2xsM3l6MGFrNzNmb2Rkc3R4aGNpaCJ9.7QMk55HNEXUArriHfG8ITg</string>
+    <string name="title_activity_googlemap">GooglemapActivity</string>
+</resources>
