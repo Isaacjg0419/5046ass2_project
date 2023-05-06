@@ -1,6 +1,4 @@
-package com.example.a5046ass2_project
-
-import RetrofitClient
+package com.example.a5046ass2_project.Retrofit
 
 import android.os.Bundle
 import android.util.Log

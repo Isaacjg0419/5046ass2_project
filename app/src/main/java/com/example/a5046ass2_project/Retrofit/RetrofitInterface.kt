@@ -1,5 +1,5 @@
-import com.example.a5046ass2_project.SearchResponse
-import retrofit2.Call
+package com.example.a5046ass2_project.Retrofit
+
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
