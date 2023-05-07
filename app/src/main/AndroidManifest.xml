@@ -16,11 +16,11 @@
         <activity
             android:name=".RecycleView.RecycleView"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".Retrofit.RetrofitKotlin"
@@ -43,13 +43,24 @@
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
         <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyCWyrwov7lMVMuh06hu107A0vymfu4ElUs" />
 
         <activity
-            android:name=".GMapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_gmaps" />
+            android:name=".GoogleMap.GMapsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_gmaps" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true" />

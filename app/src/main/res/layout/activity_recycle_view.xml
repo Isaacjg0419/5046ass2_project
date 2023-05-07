@@ -35,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:padding="10px"
-        android:radius
         android:text="Add " />
 
     <androidx.recyclerview.widget.RecyclerView

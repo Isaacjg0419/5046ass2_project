@@ -1,7 +1,8 @@
-package com.example.a5046ass2_project
+package com.example.a5046ass2_project.GoogleMap
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.a5046ass2_project.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
