@@ -25,6 +25,10 @@
         <activity
             android:name=".Retrofit.RetrofitKotlin"
             android:exported="true"/>
+
+        <activity
+            android:name=".R"
+            android:exported="true"/>
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
