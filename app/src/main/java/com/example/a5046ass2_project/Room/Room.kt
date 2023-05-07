@@ -18,20 +18,17 @@ class Room : AppCompatActivity() {
         setContentView(view)
         binding.idTextField.setPlaceholderText("This is only used for Edit")
         val customerViewModel: CustomerViewModel =
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(
-                CustomerViewModel::class.java
-            )
-        customerViewModel.allCustomers.observe(this, Observer{ customers ->
+            ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(CustomerViewModel::class.java)
+        customerViewModel.allCustomers.observe(this, Observer { customers ->
             var allCustomers = ""
             for (temp in customers) {
                 val customerDetails: String =
-                    temp.uid.toString() + " " + temp.firstName + " " +
-                            temp.lastName + " " + temp.salary
+                    temp.uid.toString() + " " + temp.firstName + " " + temp.lastName + " " + temp.salary
                 allCustomers =
                     allCustomers + System.getProperty("line.separator") +
                             customerDetails
             }
-            binding.textViewRead.setText("All data: $allCustomers")
+            binding.textViewRead.setText("All data" + allCustomers)
         })
         binding.addButton.setOnClickListener {
             val name = binding.nameTextField.editText!!.text.toString()
@@ -70,8 +67,7 @@ class Room : AppCompatActivity() {
                         customer.lastName = surname
                         customer.salary = doubleSalary
                         customerViewModel.update(customer)
-                        binding.textViewUpdate.text =
-                            "Update was successful for ID: " + customer.uid
+                        binding.textViewUpdate.text = "Update was successful for ID: " + customer.uid
                     } else {
                         binding.textViewUpdate.text = "Id does not exist"
                     }

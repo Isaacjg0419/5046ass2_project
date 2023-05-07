@@ -13,8 +13,6 @@ class CustomerDatabase {
         abstract fun customerDao(): CustomerDAO
 
         companion object {
-            //// Volatile annotation means any writes to this method will be visible to other
-//            threads and guarantees visibility of changes to variables across threads
             @Volatile
             private var INSTANCE: CustomerDatabase? = null
             fun getInstance(context: Context): CustomerDatabase {
@@ -22,8 +20,7 @@ class CustomerDatabase {
                     val instance = Room.databaseBuilder(
                         context.applicationContext,
                         CustomerDatabase::class.java,
-                        "CustomerDatabase"
-                    )
+                        "CustomerDatabase")
                         .fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance
