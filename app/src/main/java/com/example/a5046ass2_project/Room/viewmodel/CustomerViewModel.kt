@@ -1,6 +1,6 @@
 package com.example.a5046ass2_project.Room.viewmodel
 
-import Respository.CustomerRepository
+import com.example.a5046ass2_project.Room.repository.CustomerRepository
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.a5046ass2_project.Room.entity.Customer

@@ -1,5 +1,4 @@
 package com.example.a5046ass2_project.Room.entity
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

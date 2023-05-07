@@ -21,7 +21,7 @@ class Room : AppCompatActivity() {
             ViewModelProvider.AndroidViewModelFactory.getInstance(application).create(
                 CustomerViewModel::class.java
             )
-        customerViewModel.allCustomers.observe(this, Observer { customers ->
+        customerViewModel.allCustomers.observe(this, Observer{ customers ->
             var allCustomers = ""
             for (temp in customers) {
                 val customerDetails: String =
@@ -31,9 +31,8 @@ class Room : AppCompatActivity() {
                     allCustomers + System.getProperty("line.separator") +
                             customerDetails
             }
-            binding.textViewRead.setText("All data: " + allCustomers)
+            binding.textViewRead.setText("All data: $allCustomers")
         })
-
         binding.addButton.setOnClickListener {
             val name = binding.nameTextField.editText!!.text.toString()
             val surname = binding.surnameTextField.editText!!.text.toString()
@@ -45,14 +44,11 @@ class Room : AppCompatActivity() {
                 binding.textViewAdd.text = "Added Record: $name $surname $salary"
             }
         }
-        binding.deleteButton.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View) {
 
-                18 of 18
-                customerViewModel.deleteAll()
-                binding.textViewDelete.setText("All data was deleted")
-            }
-        })
+        binding.deleteButton.setOnClickListener {
+            customerViewModel.deleteAll()
+            binding.textViewDelete.setText("All data was deleted")
+        }
         binding.clearButton.setOnClickListener {
             binding.nameTextField.editText!!.setText("")
             binding.surnameTextField.editText!!.setText("")
@@ -83,4 +79,5 @@ class Room : AppCompatActivity() {
             }
         }
     }
+
 }
