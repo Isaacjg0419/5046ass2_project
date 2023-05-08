@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">5046ass2_project</string>
     <string name="title_activity_gmaps">GMapsActivity</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

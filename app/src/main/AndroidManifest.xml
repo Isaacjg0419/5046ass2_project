@@ -14,23 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.5046ass2_project"
         tools:targetApi="31">
-        <activity
-            android:name=".RecycleView.RecycleView"
-            android:exported="true"/>
 
-        <activity
-            android:name=".Retrofit.RetrofitKotlin"
-            android:exported="false"/>
-
-<!--        <activity-->
-<!--            android:name=".Room.RoomMainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -43,17 +27,16 @@
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCWyrwov7lMVMuh06hu107A0vymfu4ElUs" />
+        <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCWyrwov7lMVMuh06hu107A0vymfu4ElUs" />
-
         <activity
-            android:name=".GoogleMap.GMapsActivity"
+            android:name=".Map.MapsActivity"
             android:exported="true"
-            android:label="@string/title_activity_gmaps" >
+            android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,9 +44,12 @@
             </intent-filter>
 
         </activity>
-
-
-
+        <activity
+            android:name=".RecycleView.RecycleView"
+            android:exported="true" />
+        <activity
+            android:name=".Retrofit.RetrofitKotlin"
+            android:exported="false" /> <!-- <activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />

@@ -1,0 +1,502 @@
+[
+    {
+        "property_type": "Apartment",
+        "price": 221,
+        "room_count": 4,
+        "latitude": -37.905984825142056,
+        "longitude": 145.13314595924305,
+        "address": "Monash Caulfield, High Street",
+        "postcode": 3126,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 100,
+        "room_count": 5,
+        "latitude": -37.90680693785233,
+        "longitude": 145.13121978798225,
+        "address": "Monash Caulfield, Park Road",
+        "postcode": 3929,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "House",
+        "price": 537,
+        "room_count": 3,
+        "latitude": -37.90182809276659,
+        "longitude": 145.13556323148484,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3903,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 576,
+        "room_count": 5,
+        "latitude": -37.905926341354345,
+        "longitude": 145.1335428371644,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3327,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "House",
+        "price": 439,
+        "room_count": 5,
+        "latitude": -37.90949690169655,
+        "longitude": 145.1391743233041,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3559,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "House",
+        "price": 275,
+        "room_count": 5,
+        "latitude": -37.90788366921489,
+        "longitude": 145.13141416199454,
+        "address": "Monash Caulfield, Park Road",
+        "postcode": 3911,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 457,
+        "room_count": 1,
+        "latitude": -37.90725470315263,
+        "longitude": 145.1361155731591,
+        "address": "Monash Clayton, First Avenue",
+        "postcode": 3003,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 861,
+        "room_count": 4,
+        "latitude": -37.903854465636115,
+        "longitude": 145.13337698037606,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3460,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "House",
+        "price": 652,
+        "room_count": 3,
+        "latitude": -37.9081517156189,
+        "longitude": 145.1373025799428,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3338,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 330,
+        "room_count": 3,
+        "latitude": -37.901068577283716,
+        "longitude": 145.13820421358653,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3807,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "House",
+        "price": 557,
+        "room_count": 3,
+        "latitude": -37.900264370990044,
+        "longitude": 145.1357833111788,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3711,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "House",
+        "price": 171,
+        "room_count": 4,
+        "latitude": -37.90546738811832,
+        "longitude": 145.13854749937155,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3770,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 582,
+        "room_count": 5,
+        "latitude": -37.90139659925608,
+        "longitude": 145.1347171232209,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3686,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 497,
+        "room_count": 1,
+        "latitude": -37.907391072082554,
+        "longitude": 145.1307369694425,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3903,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "House",
+        "price": 642,
+        "room_count": 5,
+        "latitude": -37.905369030408906,
+        "longitude": 145.13514075121415,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3682,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "House",
+        "price": 480,
+        "room_count": 4,
+        "latitude": -37.90430959497781,
+        "longitude": 145.13256724092116,
+        "address": "Monash Caulfield, High Street",
+        "postcode": 3647,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 889,
+        "room_count": 4,
+        "latitude": -37.905655939903426,
+        "longitude": 145.13335522208232,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3256,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 188,
+        "room_count": 5,
+        "latitude": -37.906023598199006,
+        "longitude": 145.130611369229,
+        "address": "Monash Caulfield, High Street",
+        "postcode": 3108,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 209,
+        "room_count": 1,
+        "latitude": -37.90311683761415,
+        "longitude": 145.13132506681376,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3331,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 434,
+        "room_count": 5,
+        "latitude": -37.905953643127,
+        "longitude": 145.13871869100072,
+        "address": "Monash Clayton, First Avenue",
+        "postcode": 3823,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 733,
+        "room_count": 3,
+        "latitude": -37.90349452228921,
+        "longitude": 145.1382726793382,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3343,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 397,
+        "room_count": 4,
+        "latitude": -37.90567936579348,
+        "longitude": 145.13658410005053,
+        "address": "Monash Clayton, First Avenue",
+        "postcode": 3786,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 182,
+        "room_count": 3,
+        "latitude": -37.90114606184549,
+        "longitude": 145.13243933717095,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3081,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "House",
+        "price": 745,
+        "room_count": 3,
+        "latitude": -37.901059749083934,
+        "longitude": 145.13487826970945,
+        "address": "Monash Caulfield, High Street",
+        "postcode": 3756,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 985,
+        "room_count": 2,
+        "latitude": -37.908026419076336,
+        "longitude": 145.1357608325738,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3236,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 206,
+        "room_count": 1,
+        "latitude": -37.90396263274503,
+        "longitude": 145.13931458534168,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3756,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 785,
+        "room_count": 5,
+        "latitude": -37.902883603237015,
+        "longitude": 145.13422214591236,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3589,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 443,
+        "room_count": 4,
+        "latitude": -37.90935615830451,
+        "longitude": 145.1392321523585,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3725,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "House",
+        "price": 661,
+        "room_count": 2,
+        "latitude": -37.903310556536645,
+        "longitude": 145.13695764247313,
+        "address": "Monash Clayton, First Avenue",
+        "postcode": 3483,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 964,
+        "room_count": 3,
+        "latitude": -37.90598534246915,
+        "longitude": 145.13157112995,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3376,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "House",
+        "price": 756,
+        "room_count": 2,
+        "latitude": -37.9031493319577,
+        "longitude": 145.13617082074273,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3733,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 903,
+        "room_count": 2,
+        "latitude": -37.9089674247042,
+        "longitude": 145.13286650276203,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3785,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "House",
+        "price": 130,
+        "room_count": 1,
+        "latitude": -37.9085702079772,
+        "longitude": 145.13071925902207,
+        "address": "Monash Caulfield, Park Road",
+        "postcode": 3507,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 695,
+        "room_count": 5,
+        "latitude": -37.90149183265399,
+        "longitude": 145.13140830377384,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3140,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "House",
+        "price": 551,
+        "room_count": 5,
+        "latitude": -37.90265513370091,
+        "longitude": 145.13829462155974,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3967,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 256,
+        "room_count": 4,
+        "latitude": -37.90355803696691,
+        "longitude": 145.13829077968174,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3564,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "House",
+        "price": 365,
+        "room_count": 5,
+        "latitude": -37.90975393045206,
+        "longitude": 145.13532248864286,
+        "address": "Monash Clayton, High Street",
+        "postcode": 3408,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "House",
+        "price": 927,
+        "room_count": 5,
+        "latitude": -37.9053568801852,
+        "longitude": 145.13857445940388,
+        "address": "Monash Caulfield, High Street",
+        "postcode": 3191,
+        "description": "Luxurious living in the heart of the city"
+    },
+    {
+        "property_type": "House",
+        "price": 910,
+        "room_count": 1,
+        "latitude": -37.901780495777416,
+        "longitude": 145.13330921145902,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3269,
+        "description": "Charming property with unique features"
+    },
+    {
+        "property_type": "House",
+        "price": 689,
+        "room_count": 1,
+        "latitude": -37.908674932693124,
+        "longitude": 145.1359730326062,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3633,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 894,
+        "room_count": 4,
+        "latitude": -37.90915207815883,
+        "longitude": 145.13413995595775,
+        "address": "Monash Clayton, High Street",
+        "postcode": 3556,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "House",
+        "price": 252,
+        "room_count": 4,
+        "latitude": -37.90802451098714,
+        "longitude": 145.1323757681499,
+        "address": "Monash Clayton, High Street",
+        "postcode": 3197,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 855,
+        "room_count": 1,
+        "latitude": -37.90982711952119,
+        "longitude": 145.13418093324375,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3597,
+        "description": "Spacious house with a backyard"
+    },
+    {
+        "property_type": "House",
+        "price": 596,
+        "room_count": 2,
+        "latitude": -37.90429145509146,
+        "longitude": 145.13527738884696,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3218,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "House",
+        "price": 133,
+        "room_count": 4,
+        "latitude": -37.9095234003564,
+        "longitude": 145.1364424533342,
+        "address": "Monash Caulfield, Main Street",
+        "postcode": 3804,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "House",
+        "price": 601,
+        "room_count": 1,
+        "latitude": -37.902286820556824,
+        "longitude": 145.13489343321464,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3543,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "House",
+        "price": 256,
+        "room_count": 5,
+        "latitude": -37.90245059047897,
+        "longitude": 145.1390038051331,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3179,
+        "description": "Cozy apartment with a stunning view"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 445,
+        "room_count": 1,
+        "latitude": -37.90637113374737,
+        "longitude": 145.13603861512743,
+        "address": "Monash Clayton, Park Road",
+        "postcode": 3707,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "TownHouse",
+        "price": 526,
+        "room_count": 2,
+        "latitude": -37.904216341218,
+        "longitude": 145.13719121277387,
+        "address": "Monash Clayton, Main Street",
+        "postcode": 3055,
+        "description": "Modern TownHouse in a prime location"
+    },
+    {
+        "property_type": "Apartment",
+        "price": 546,
+        "room_count": 5,
+        "latitude": -37.90413262165475,
+        "longitude": 145.1362940368552,
+        "address": "Monash Caulfield, First Avenue",
+        "postcode": 3310,
+        "description": "Cozy apartment with a stunning view"
+    }
+]

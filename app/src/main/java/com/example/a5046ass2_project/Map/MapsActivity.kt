@@ -1,10 +1,6 @@
-package com.example.a5046ass2_project.GoogleMap
-
-import android.Manifest
-import android.content.pm.PackageManager
+package com.example.a5046ass2_project.Map
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-
 import androidx.room.Room
 import com.example.a5046ass2_project.R
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -13,26 +9,26 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.CameraPosition
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
 
-class GMapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var googleMap: GoogleMap
-    private lateinit var attributeDao: AttributeDao
+    private lateinit var propertyDAO: PropertyDAO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gmaps)
+        setContentView(R.layout.activity_maps)
 
-        attributeDao = Room.databaseBuilder(
+        propertyDAO = Room.databaseBuilder(
             applicationContext,
-            AppDatabase::class.java,
-            "app_database"
-        ).build().attributeDao()
+            PropertyDabase::class.java,
+            "new_database"
+        ).build().propertyDAO()
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -58,25 +54,33 @@ class GMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         CoroutineScope(Dispatchers.IO).launch {
             for (i in 0 until jsonArray.length()) {
                 val jsonObject = jsonArray.getJSONObject(i)
-                val title = jsonObject.getString("title")
+                val address = jsonObject.getString("address")
                 val description = jsonObject.getString("description")
                 val latitude = jsonObject.getDouble("latitude")
                 val longitude = jsonObject.getDouble("longitude")
+                val property_type = jsonObject.getString("property_type")
+                val price = jsonObject.getInt("price")
+                val room_count = jsonObject.getInt("room_count")
+                val postcode = jsonObject.getInt("postcode")
 
                 val latLng = LatLng(latitude, longitude)
-                val markerOptions = MarkerOptions().position(latLng).title(title).snippet(description)
+                val markerOptions = MarkerOptions().position(latLng).title(description).snippet(address)
 
                 withContext(Dispatchers.Main) {
                     googleMap.addMarker(markerOptions)
                 }
 
-                val attribute = Attribute(
-                    title = title,
+                val property = Property(
+                    address = address,
                     description = description,
                     latitude = latitude,
-                    longitude = longitude
+                    longitude = longitude,
+                    property_type = property_type,
+                    price = price,
+                    room_count = room_count,
+                    postcode = postcode
                 )
-                attributeDao.insert(attribute)
+                propertyDAO.insert(property)
             }
         }
     }
