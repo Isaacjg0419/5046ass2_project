@@ -1,5 +1,6 @@
 package com.example.a5046ass2_project.Map
 import android.os.Bundle
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.a5046ass2_project.R
@@ -19,10 +20,13 @@ import org.json.JSONArray
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var googleMap: GoogleMap
     private lateinit var propertyDAO: PropertyDAO
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+
 
         propertyDAO = Room.databaseBuilder(
             applicationContext,
@@ -33,6 +37,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+// search view by post code
+        searchView = findViewById(R.id.search_view)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                searchMarkersByPostcode(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (newText.isBlank()) {
+                    showAllMarkers()
+                }
+                return false
+            }
+        })
     }
 
     override fun onMapReady(map: GoogleMap) {
@@ -84,6 +103,36 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
+//search method
+    private fun searchMarkersByPostcode(postcode: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val properties = propertyDAO.getPropertiesByPostcode(postcode.toInt())
 
+            withContext(Dispatchers.Main) {
+                googleMap.clear()
 
+                for (property in properties) {
+                    val latLng = LatLng(property.latitude, property.longitude)
+                    val markerOptions = MarkerOptions().position(latLng).title(property.description).snippet(property.address)
+                    googleMap.addMarker(markerOptions)
+                }
+            }
+        }
+    }
+// when search bar is empty or close, show all markers
+    private fun showAllMarkers() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val properties = propertyDAO.getAllAttributes()
+
+            withContext(Dispatchers.Main) {
+                googleMap.clear()
+
+                for (property in properties) {
+                    val latLng = LatLng(property.latitude, property.longitude)
+                    val markerOptions = MarkerOptions().position(latLng).title(property.description).snippet(property.address)
+                    googleMap.addMarker(markerOptions)
+                }
+            }
+        }
+    }
 }
