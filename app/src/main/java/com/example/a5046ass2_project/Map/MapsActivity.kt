@@ -1,6 +1,11 @@
 package com.example.a5046ass2_project.Map
+
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.FrameLayout
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.a5046ass2_project.R
@@ -9,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 import kotlinx.coroutines.CoroutineScope
@@ -28,7 +34,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 
-        propertyDAO =PropertyDabase.getInstance(applicationContext).propertyDAO()
+        propertyDAO = PropertyDabase.getInstance(applicationContext).propertyDAO()
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -56,7 +62,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val monashClaytonLatLng = LatLng(-37.915, 145.135)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monashClaytonLatLng, 14f))
-
         loadJsonDataAndRenderMarkers()
     }
 
@@ -79,15 +84,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val postcode = jsonObject.getInt("postcode")
 
                 val latLng = LatLng(latitude, longitude)
-                val markerOptions = MarkerOptions().position(latLng).title(description).snippet(address)
-//                markerOptions.
+                val markerOptions =
+                    MarkerOptions().position(latLng).title(description).snippet(address)
 
                 withContext(Dispatchers.Main) {
-                    googleMap.addMarker(markerOptions)
+                    val marker = googleMap.addMarker(markerOptions)
+                    setMarkerClickListener(marker)
                 }
 
                 val property = Property(
-                    id=i.toLong(),
+                    id = i.toLong(),
                     address = address,
                     description = description,
                     latitude = latitude,
@@ -96,13 +102,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     price = price,
                     room_count = room_count,
                     postcode = postcode,
-                    url=""
+                    url = ""
                 )
                 propertyDAO.insert(property)
+
             }
         }
     }
-//search method
+
+
+    private fun setMarkerClickListener(marker: Marker?) {
+        googleMap.setOnMarkerClickListener { clickedMarker ->
+            val intent = Intent(this@MapsActivity, PropertyDetailActivity::class.java)
+            intent.putExtra("id", clickedMarker.id)
+            startActivity(intent)
+            true
+        }
+    }
+
+
+    //search method
     private fun searchMarkersByPostcode(postcode: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val properties = propertyDAO.getPropertiesByPostcode(postcode.toInt())
@@ -112,13 +131,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 for (property in properties) {
                     val latLng = LatLng(property.latitude, property.longitude)
-                    val markerOptions = MarkerOptions().position(latLng).title(property.description).snippet(property.address)
+                    val markerOptions = MarkerOptions().position(latLng).title(property.description)
+                        .snippet(property.address)
                     googleMap.addMarker(markerOptions)
                 }
             }
         }
     }
-// when search bar is empty or close, show all markers
+
+    // when search bar is empty or close, show all markers
     private fun showAllMarkers() {
         CoroutineScope(Dispatchers.IO).launch {
             val properties = propertyDAO.getAllAttributes()
@@ -128,10 +149,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 for (property in properties) {
                     val latLng = LatLng(property.latitude, property.longitude)
-                    val markerOptions = MarkerOptions().position(latLng).title(property.description).snippet(property.address)
+                    val markerOptions = MarkerOptions().position(latLng).title(property.description)
+                        .snippet(property.address)
                     googleMap.addMarker(markerOptions)
                 }
             }
         }
     }
+
 }

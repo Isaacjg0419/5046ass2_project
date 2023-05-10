@@ -6,13 +6,19 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
+
 interface PropertyDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(property: Property)
+    suspend fun insert(property: Property)
 
     @Query("SELECT * FROM properties")
-    fun getAllAttributes(): List<Property>
-//search by postcode
+    suspend fun getAllAttributes(): List<Property>
+
     @Query("SELECT * FROM properties WHERE postcode = :postcode")
-    fun getPropertiesByPostcode(postcode: Int): List<Property>
+    suspend fun getPropertiesByPostcode(postcode: Int): List<Property>
+
+    @Query("SELECT * FROM properties WHERE id = :id LIMIT 1")
+    suspend fun getPropertyByMarkerId(id: Long): Property?
 }
+
+
