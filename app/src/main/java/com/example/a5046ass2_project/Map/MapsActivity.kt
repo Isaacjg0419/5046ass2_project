@@ -29,6 +29,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -122,7 +123,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     currentLocationMarker = googleMap.addMarker(
                         MarkerOptions()
                             .position(currentLatLng)
-                            .title("My Location")
+                            .title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)) // 设置标记颜色为蓝色
+
+
                     )
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
                 }
