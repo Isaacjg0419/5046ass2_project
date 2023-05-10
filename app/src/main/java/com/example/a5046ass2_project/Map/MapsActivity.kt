@@ -23,16 +23,31 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.*
+import com.google.android.gms.maps.*
+
+
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var googleMap: GoogleMap
     private lateinit var propertyDAO: PropertyDAO
     private lateinit var searchView: SearchView
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var currentLocationMarker: Marker? = null
+
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 1001
+    }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-
-
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         propertyDAO = PropertyDabase.getInstance(applicationContext).propertyDAO()
 
@@ -63,7 +78,82 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val monashClaytonLatLng = LatLng(-37.915, 145.135)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monashClaytonLatLng, 14f))
         loadJsonDataAndRenderMarkers()
+
+        // 获取并添加实时位置标记
+        addCurrentLocationMarker()
     }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // 用户授予了位置权限，重新获取实时位置并添加标记
+                addCurrentLocationMarker()
+            } else {
+                // 用户拒绝了位置权限，根据需求进行处理
+                Toast.makeText(this, "require permission to get current location", Toast.LENGTH_SHORT).show()
+                // 或者执行其他操作
+            }
+        }
+    }
+
+    private fun requestLocationPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            PERMISSION_REQUEST_CODE
+        )
+    }
+
+
+    private fun addCurrentLocationMarker() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                // 检查是否成功获取到位置
+                if (location != null) {
+                    val currentLatLng = LatLng(location.latitude, location.longitude)
+                    currentLocationMarker?.remove() // 移除之前的位置标记
+                    currentLocationMarker = googleMap.addMarker(
+                        MarkerOptions()
+                            .position(currentLatLng)
+                            .title("My Location")
+                    )
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+                }
+            }
+
+            // 注册位置更新的监听器
+            fusedLocationClient.requestLocationUpdates(
+                LocationRequest.create(),
+                object : LocationCallback() {
+                    override fun onLocationResult(locationResult: LocationResult) {
+                        // 位置更新的回调函数，更新当前位置标记
+                        val currentLocation = locationResult.lastLocation
+                        val currentLatLng = LatLng(currentLocation.latitude, currentLocation.longitude)
+                        currentLocationMarker?.remove()
+                        currentLocationMarker = googleMap.addMarker(
+                            MarkerOptions()
+                                .position(currentLatLng)
+                                .title("My Location")
+                        )
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+                    }
+                },
+                null
+            )
+        } else {
+            // 如果没有位置权限，请求用户授权
+            requestLocationPermission()
+        }
+    }
+
+
 
     private fun loadJsonDataAndRenderMarkers() {
         val inputStream = assets.open("property_data.json")

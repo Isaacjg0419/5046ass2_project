@@ -76,7 +76,11 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
 
+    // Google Play services 地图库
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
 
+    // Google Play services 位置库
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
 
 
 
