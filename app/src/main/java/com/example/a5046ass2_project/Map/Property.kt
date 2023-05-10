@@ -3,10 +3,11 @@ package com.example.a5046ass2_project.Map
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.net.URL
 
 @Entity(tableName = "properties")
 data class Property(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: Long = 0,
     val address: String,
     val description: String,
@@ -15,5 +16,6 @@ data class Property(
     val property_type:String,
     val price:Int,
     val room_count:Int,
-    val postcode:Int
+    val postcode:Int,
+    val url:String
 )

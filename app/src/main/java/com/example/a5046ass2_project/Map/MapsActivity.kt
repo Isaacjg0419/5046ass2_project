@@ -28,11 +28,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 
-        propertyDAO = Room.databaseBuilder(
-            applicationContext,
-            PropertyDabase::class.java,
-            "new_database"
-        ).build().propertyDAO()
+        propertyDAO =PropertyDabase.getInstance(applicationContext).propertyDAO()
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -84,12 +80,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 val latLng = LatLng(latitude, longitude)
                 val markerOptions = MarkerOptions().position(latLng).title(description).snippet(address)
+//                markerOptions.
 
                 withContext(Dispatchers.Main) {
                     googleMap.addMarker(markerOptions)
                 }
 
                 val property = Property(
+                    id=i.toLong(),
                     address = address,
                     description = description,
                     latitude = latitude,
@@ -97,7 +95,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     property_type = property_type,
                     price = price,
                     room_count = room_count,
-                    postcode = postcode
+                    postcode = postcode,
+                    url=""
                 )
                 propertyDAO.insert(property)
             }

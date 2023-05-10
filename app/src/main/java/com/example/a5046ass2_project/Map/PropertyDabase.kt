@@ -8,12 +8,14 @@ import androidx.room.RoomDatabase
 
 
 
-@Database(entities = [Property::class], version = 2, exportSchema = false)
+@Database(entities = [Property::class], version = 3, exportSchema = false)
 abstract class PropertyDabase : RoomDatabase() {
     abstract fun propertyDAO():PropertyDAO
 
     companion object {
+        @Volatile
         private var instance: PropertyDabase? = null
+
 
         fun getInstance(context: Context): PropertyDabase {
             if (instance == null) {
@@ -22,8 +24,8 @@ abstract class PropertyDabase : RoomDatabase() {
                         context.applicationContext,
                         PropertyDabase::class.java,
                         "app_database"
-                    ).addMigrations()
-                        .build()
+                    ).fallbackToDestructiveMigration().build()
+
                 }
             }
             return instance!!
