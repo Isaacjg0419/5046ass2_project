@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.5046ass2_project"
         tools:targetApi="31">
+        <activity
+            android:name=".WishList.model.WishListActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -31,23 +40,18 @@
             android:value="AIzaSyCWyrwov7lMVMuh06hu107A0vymfu4ElUs" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-<!--map and property detail-->
+            android:value="@integer/google_play_services_version" /> <!-- map and property detail -->
         <activity
             android:name=".Map.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".Map.PropertyDetailActivity" />
-
-
-
-
         <activity
             android:name=".RecycleView.RecycleView"
             android:exported="true" />
