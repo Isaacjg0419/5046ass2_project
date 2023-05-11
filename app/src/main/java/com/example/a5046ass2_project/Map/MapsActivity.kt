@@ -212,11 +212,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun setMarkerClickListener(marker: Marker?) {
         googleMap.setOnMarkerClickListener { clickedMarker ->
             val intent = Intent(this@MapsActivity, PropertyDetailActivity::class.java)
-            intent.putExtra("id", clickedMarker.id)
+            val markerId = clickedMarker.id.substring(1).toLong() // 解析标记的ID
+            intent.putExtra("id", markerId)
             startActivity(intent)
             true
         }
     }
+
 
 
     //search method

@@ -25,7 +25,7 @@ class PropertyDetailActivity : AppCompatActivity() {
 
         propertyDAO = PropertyDatabase.getInstance(applicationContext).propertyDAO()
 
-        val propertyId = intent.getLongExtra("propertyId", 0)
+        val propertyId = intent.getLongExtra("id", 0)
 
         CoroutineScope(Dispatchers.IO).launch {
             val property = propertyDAO.getPropertyByMarkerId(propertyId)
@@ -36,19 +36,6 @@ class PropertyDetailActivity : AppCompatActivity() {
 
                     val addToWishlistButton: Button = findViewById(R.id.addToWishlistButton)
                     addToWishlistButton.setOnClickListener {
-                        addToWishlist(property)
-                    }
-                }
-            }
-        }
-
-        val addButton: Button = findViewById(R.id.addToWishlistButton)
-        addButton.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                val property = propertyDAO.getPropertyByMarkerId(propertyId)
-
-                withContext(Dispatchers.Main) {
-                    if (property != null) {
                         addToWishlist(property)
                     }
                 }

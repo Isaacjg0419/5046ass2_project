@@ -43,11 +43,8 @@ class WishlistActivity : AppCompatActivity() {
     private suspend fun getProperties(): List<Property> {
         val propertyList = mutableListOf<Property>()
 
-        // 从 Intent 中获取传递的 propertyId
-        val propertyId = intent.getLongExtra("propertyId", 0)
-
-        // 使用 propertyId 从数据库中获取相应的属性信息
-        val property = getPropertyById(propertyId)
+        // 从 Intent 中获取传递的 property
+        val property = intent.getParcelableExtra<Property>("property")
 
         // 如果获取到属性信息，则添加到属性列表中
         if (property != null) {
@@ -57,10 +54,10 @@ class WishlistActivity : AppCompatActivity() {
         return propertyList
     }
 
-    private suspend fun getPropertyById(propertyId: Long): Property? {
-        val propertyDAO = PropertyDatabase.getInstance(applicationContext).propertyDAO()
-        return propertyDAO.getPropertyByMarkerId(propertyId)
-    }
+//    private suspend fun getPropertyById(propertyId: Long): Property? {
+//        val propertyDAO = PropertyDatabase.getInstance(applicationContext).propertyDAO()
+//        return propertyDAO.getPropertyByMarkerId(propertyId)
+//    }
 }
 
 

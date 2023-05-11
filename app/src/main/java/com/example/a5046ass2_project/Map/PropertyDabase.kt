@@ -1,12 +1,9 @@
 package com.example.a5046ass2_project.Map
-
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 
 import androidx.room.RoomDatabase
-
-
 
 @Database(entities = [Property::class], version = 3, exportSchema = false)
 abstract class PropertyDatabase : RoomDatabase() {
