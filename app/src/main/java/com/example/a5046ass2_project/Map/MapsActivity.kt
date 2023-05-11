@@ -49,7 +49,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_maps)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        propertyDAO = PropertyDabase.getInstance(applicationContext).propertyDAO()
+        propertyDAO = PropertyDatabase.getInstance(applicationContext).propertyDAO()
 
         val mapFragment =
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment

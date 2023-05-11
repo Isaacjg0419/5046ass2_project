@@ -48,6 +48,15 @@
         android:layout_marginEnd="16dp"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/addToWishlistButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Wishlist"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal" />
+
+
 
 
 </LinearLayout>

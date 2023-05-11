@@ -9,20 +9,20 @@ import androidx.room.RoomDatabase
 
 
 @Database(entities = [Property::class], version = 3, exportSchema = false)
-abstract class PropertyDabase : RoomDatabase() {
+abstract class PropertyDatabase : RoomDatabase() {
     abstract fun propertyDAO():PropertyDAO
 
     companion object {
         @Volatile
-        private var instance: PropertyDabase? = null
+        private var instance: PropertyDatabase? = null
 
 
-        fun getInstance(context: Context): PropertyDabase {
+        fun getInstance(context: Context): PropertyDatabase {
             if (instance == null) {
-                synchronized(PropertyDabase::class) {
+                synchronized(PropertyDatabase::class) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        PropertyDabase::class.java,
+                        PropertyDatabase::class.java,
                         "app_database"
                     ).fallbackToDestructiveMigration().build()
 
