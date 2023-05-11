@@ -44,10 +44,11 @@ class PropertyDetailActivity : AppCompatActivity() {
 
         // 使用属性数据填充 TextView 控件
         addressTextView.text = property.address
-        priceTextView.text = property.price.toString()
-        roomCountTextView.text = property.room_count.toString()
-        descriptionTextView.text = property.description
         postcodeTextView.text = property.postcode.toString()
+        priceTextView.text ="The rental price is "+property.price.toString()+" per week"
+        roomCountTextView.text ="This property get "+ property.room_count.toString()+" rooms"
+        descriptionTextView.text = "Introductions:\n"+property.description
+
     }
 
 }

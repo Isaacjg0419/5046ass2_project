@@ -44,7 +44,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -83,10 +82,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // 获取并添加实时位置标记
         addCurrentLocationMarker()
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray) {
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -94,7 +95,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 addCurrentLocationMarker()
             } else {
                 // 用户拒绝了位置权限，根据需求进行处理
-                Toast.makeText(this, "require permission to get current location", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "require permission to get current location",
+                    Toast.LENGTH_SHORT
+                ).show()
                 // 或者执行其他操作
             }
         }
@@ -110,6 +115,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     private fun addCurrentLocationMarker() {
+        val markerIcon = BitmapDescriptorFactory.fromResource(R.drawable.current_location)
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -120,12 +126,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (location != null) {
                     val currentLatLng = LatLng(location.latitude, location.longitude)
                     currentLocationMarker?.remove() // 移除之前的位置标记
+
                     currentLocationMarker = googleMap.addMarker(
                         MarkerOptions()
                             .position(currentLatLng)
-                            .title("My Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)) // 设置标记颜色为蓝色
-
-
+                            .title("My Location").icon(markerIcon)
                     )
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
                 }
@@ -138,12 +143,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     override fun onLocationResult(locationResult: LocationResult) {
                         // 位置更新的回调函数，更新当前位置标记
                         val currentLocation = locationResult.lastLocation
-                        val currentLatLng = LatLng(currentLocation.latitude, currentLocation.longitude)
+                        val currentLatLng =
+                            LatLng(currentLocation.latitude, currentLocation.longitude)
                         currentLocationMarker?.remove()
                         currentLocationMarker = googleMap.addMarker(
                             MarkerOptions()
                                 .position(currentLatLng)
-                                .title("My Location")
+                                .title("My Location").icon(markerIcon)
                         )
                         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
                     }
@@ -155,7 +161,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             requestLocationPermission()
         }
     }
-
 
 
     private fun loadJsonDataAndRenderMarkers() {
