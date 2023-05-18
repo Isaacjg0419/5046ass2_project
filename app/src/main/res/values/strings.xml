@@ -2,4 +2,12 @@
     <string name="app_name">5046ass2_project</string>
     <string name="title_activity_gmaps">GMapsActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="bar_chart">Bar chart</string>
+    <string name="line_chart">Line chart</string>
+    <string name="group_by_property_type">Group by Property Type</string>
+    <string name="report_show_the_price_flow">Report show the price flow</string>
+    <string name="search">Search</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="wishlist">Wishlist</string>
 </resources>
