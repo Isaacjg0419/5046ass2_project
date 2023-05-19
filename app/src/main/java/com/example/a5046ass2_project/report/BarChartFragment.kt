@@ -1,13 +1,22 @@
 package com.example.a5046ass2_project.report
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.a5046ass2_project.map.Property
 import com.example.a5046ass2_project.R
 import com.example.a5046ass2_project.databinding.FragmentBarChartBinding
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
+
 
 class BarChartFragment : Fragment() {
 
