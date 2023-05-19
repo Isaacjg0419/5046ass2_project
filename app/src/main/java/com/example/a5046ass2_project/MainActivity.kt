@@ -25,6 +25,20 @@ class MainActivity : AppCompatActivity() {
         initNavigationDrawer()
         mainViewModel.getProfileFromRoom()
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (intent.getStringExtra("propertyFlag").equals("WishListFlag")) {
+            intent.putExtra("propertyFlag", "")
+            val fragmentManager = supportFragmentManager
+            val navHostFragment =
+                fragmentManager.findFragmentById(R.id.nav_host_fragment) as
+                        NavHostFragment
+            val navController = navHostFragment.navController
+            navController.navigate(R.id.wishlistFragment)
+        }
+        initNavigationDrawer()
+    }
     private fun initNavigationDrawer() {
         //Create a new Builder with a specific set of top level destinations
         val mAppBarConfiguration = AppBarConfiguration.Builder(

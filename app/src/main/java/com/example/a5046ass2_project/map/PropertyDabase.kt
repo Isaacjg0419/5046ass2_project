@@ -9,7 +9,7 @@ import com.example.a5046ass2_project.profile.Converters
 import com.example.a5046ass2_project.profile.ProfileDAO
 import com.example.a5046ass2_project.profile.UserProfile
 
-@Database(entities = [Property::class, UserProfile::class], version = 6, exportSchema = false)
+@Database(entities = [Property::class, UserProfile::class], version = 7, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class PropertyDatabase : RoomDatabase() {
     abstract fun propertyDAO():PropertyDAO

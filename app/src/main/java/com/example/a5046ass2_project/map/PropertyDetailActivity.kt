@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-
+import com.example.a5046ass2_project.MainActivity
 import com.example.a5046ass2_project.R
 import com.example.a5046ass2_project.wishList.WishlistFragment
-
-import com.google.android.material.snackbar.Snackbar
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +43,6 @@ class PropertyDetailActivity : AppCompatActivity() {
     }
 
     private fun renderPropertyDetail(property: Property) {
-//        render each attribute of each property
         val addressTextView: TextView = findViewById(R.id.addressTextView)
         val priceTextView: TextView = findViewById(R.id.priceTextView)
         val roomCountTextView: TextView = findViewById(R.id.roomCountTextView)
@@ -60,12 +57,12 @@ class PropertyDetailActivity : AppCompatActivity() {
     }
 
     private fun addToWishlist(property: Property) {
-        val intent = Intent(this, WishlistFragment::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("property", property)
+        intent.putExtra("propertyFlag", "WishListFlag")
         startActivity(intent)
     }
 }
-
 
 
 

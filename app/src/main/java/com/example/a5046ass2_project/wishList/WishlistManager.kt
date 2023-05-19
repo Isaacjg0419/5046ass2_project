@@ -6,8 +6,11 @@ object WishlistManager {
     private val properties: MutableList<Property> = mutableListOf()
 
     fun addProperty(property: Property) {
-        properties.add(property)
+        if (property !in properties) {
+            properties.add(property)
+        }
     }
+
 
     fun removeProperty(property: Property) {
         properties.remove(property)
