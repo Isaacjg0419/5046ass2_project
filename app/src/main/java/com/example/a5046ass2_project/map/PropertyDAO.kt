@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import java.util.*
 
 @Dao
 
@@ -19,6 +20,9 @@ interface PropertyDAO {
 
     @Query("SELECT * FROM properties WHERE id = :id LIMIT 1")
     suspend fun getPropertyByMarkerId(id: Long): Property?
+
+    @Query("SELECT * FROM properties WHERE publish_date >= :startDate and publish_date <= :endDate")
+    suspend fun getPropertiesByPeriod(startDate: Date, endDate: Date): List<Property>
 }
 
 
