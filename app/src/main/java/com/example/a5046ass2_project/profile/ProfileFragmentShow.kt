@@ -47,3 +47,9 @@ class ProfileFragmentShow : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
+
+    private fun formatDate(date: Date): String {
+        return SimpleDateFormat("MMM dd, YYYY").format(date)
+    }
+
+}

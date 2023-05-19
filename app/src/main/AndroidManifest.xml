@@ -16,19 +16,7 @@
         android:theme="@style/Theme.5046ass2_project"
         tools:targetApi="31">
         <activity
-            android:name=".MainViewModel"
-            android:exported="false" />
-        <activity
-            android:name=".WeatherServiceClient"
-            android:exported="false" />
-        <activity
-            android:name=".WeatherViewModel"
-            android:exported="false" />
-        <activity
-            android:name=".HomeFragment"
-            android:exported="false" />
-        <activity
-            android:name=".WishList.model.WishlistActivity"
+            android:name=".authentication.AuthenticationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".wishList.WishlistActivity"
+            android:exported="true" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -67,8 +58,16 @@
         </activity>
         <activity android:name=".map.PropertyDetailActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".recycleView.RecycleView"
             android:exported="true" />
+        <activity
+            android:name=".retrofit.RetrofitKotlin"
+            android:exported="false" /> <!-- <activity -->
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.5046ass2_project.NoActionBar"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
