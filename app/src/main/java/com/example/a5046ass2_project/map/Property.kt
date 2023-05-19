@@ -6,6 +6,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.net.URL
+import java.util.*
 
 @Entity(tableName = "properties")
 data class Property(
@@ -15,12 +16,13 @@ data class Property(
     val description: String,
     val latitude: Double,
     val longitude: Double,
-    val property_type:String,
-    val price:Int,
-    val room_count:Int,
-    val postcode:Int,
-    val url:String
-): Parcelable {
+    val property_type: String,
+    val price: Int,
+    val room_count: Int,
+    val postcode: Int,
+    val publish_date: Date?,
+    val url: String
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
         parcel.readString()!!,
@@ -31,6 +33,7 @@ data class Property(
         parcel.readInt(),
         parcel.readInt(),
         parcel.readInt(),
+        parcel.readDate(),
         parcel.readString()!!
     )
 
@@ -44,6 +47,7 @@ data class Property(
         parcel.writeInt(price)
         parcel.writeInt(room_count)
         parcel.writeInt(postcode)
+        parcel.writeDate(publish_date)
         parcel.writeString(url)
     }
 
@@ -60,4 +64,13 @@ data class Property(
             return arrayOfNulls(size)
         }
     }
+}
+
+fun Parcel.writeDate(date: Date?) {
+    writeLong(date?.time ?: -1)
+}
+
+fun Parcel.readDate(): Date? {
+    val long = readLong()
+    return if (long != -1L) Date(long) else null
 }

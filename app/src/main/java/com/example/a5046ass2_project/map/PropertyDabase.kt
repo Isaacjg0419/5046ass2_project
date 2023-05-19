@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.a5046ass2_project.profile.ProfileDAO
 
-@Database(entities = [Property::class], version = 3, exportSchema = false)
+@Database(entities = [Property::class], version = 5, exportSchema = false)
 abstract class PropertyDatabase : RoomDatabase() {
     abstract fun propertyDAO(): PropertyDAO
     abstract fun profileDAO(): ProfileDAO
