@@ -15,7 +15,6 @@ import com.example.a5046ass2_project.databinding.FragmentWishlistBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import com.example.a5046ass2_project.wishList.WishlistManager
 
 
 class WishlistFragment : Fragment() {
