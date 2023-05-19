@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+
 import com.example.a5046ass2_project.R
-import com.example.a5046ass2_project.WishList.model.WishlistActivity
+import com.example.a5046ass2_project.wishList.WishlistFragment
+
 import com.google.android.material.snackbar.Snackbar
 
 import kotlinx.coroutines.CoroutineScope
@@ -59,7 +60,7 @@ class PropertyDetailActivity : AppCompatActivity() {
     }
 
     private fun addToWishlist(property: Property) {
-        val intent = Intent(this, WishlistActivity::class.java)
+        val intent = Intent(this, WishlistFragment::class.java)
         intent.putExtra("property", property)
         startActivity(intent)
     }
