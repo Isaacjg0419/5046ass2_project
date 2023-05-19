@@ -1,6 +1,6 @@
 package com.example.a5046ass2_project.WishList.adapter
 
-import com.example.a5046ass2_project.Map.Property
+import com.example.a5046ass2_project.map.Property
 
 object WishlistManager {
     private val properties: MutableList<Property> = mutableListOf()

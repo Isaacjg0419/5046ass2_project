@@ -1,4 +1,4 @@
-package com.example.a5046ass2_project.Map
+package com.example.a5046ass2_project.map
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -44,6 +44,7 @@ class PropertyDetailActivity : AppCompatActivity() {
     }
 
     private fun renderPropertyDetail(property: Property) {
+//        render each attribute of each property
         val addressTextView: TextView = findViewById(R.id.addressTextView)
         val priceTextView: TextView = findViewById(R.id.priceTextView)
         val roomCountTextView: TextView = findViewById(R.id.roomCountTextView)

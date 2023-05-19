@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a5046ass2_project.MainActivity
 import com.example.a5046ass2_project.R
-import com.example.a5046ass2_project.databinding.ActivityAuthenticationBinding
+import com.example.a5046ass2_project.databinding.AcitvityAuthenticationBinding
 import com.example.a5046ass2_project.profile.CurrentUser
 import com.example.a5046ass2_project.profile.UserProfile
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +17,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class AuthenticationActivity : AppCompatActivity() {
-    private var binding: ActivityAuthenticationBinding? = null
+    private var binding: AcitvityAuthenticationBinding? = null
 
     private lateinit var auth: FirebaseAuth
 
@@ -25,7 +25,7 @@ class AuthenticationActivity : AppCompatActivity() {
     // Initialize Firebase Auth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAuthenticationBinding.inflate(
+        binding = AcitvityAuthenticationBinding.inflate(
             layoutInflater
         )
         setContentView(binding!!.root)

@@ -1,4 +1,4 @@
-package com.example.a5046ass2_project.Map
+package com.example.a5046ass2_project.map
 
 import androidx.room.Dao
 import androidx.room.Insert

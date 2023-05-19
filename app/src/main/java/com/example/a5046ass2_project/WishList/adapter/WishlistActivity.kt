@@ -6,8 +6,8 @@ import android.os.Bundle
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a5046ass2_project.Map.Property
-import com.example.a5046ass2_project.Map.PropertyDatabase
+import com.example.a5046ass2_project.map.Property
+
 import com.example.a5046ass2_project.R
 import com.example.a5046ass2_project.WishList.adapter.PropertyAdapter
 import com.example.a5046ass2_project.WishList.adapter.WishlistManager

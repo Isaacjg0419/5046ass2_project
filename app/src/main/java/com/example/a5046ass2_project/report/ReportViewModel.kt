@@ -7,6 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.a5046ass2_project.Map.Property
 import com.example.a5046ass2_project.Map.PropertyDAO
 import com.example.a5046ass2_project.Map.PropertyDatabase
+import com.example.a5046ass2_project.map.Property
+import com.example.a5046ass2_project.map.PropertyDAO
+import com.example.a5046ass2_project.map.PropertyDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

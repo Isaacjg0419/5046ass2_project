@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a5046ass2_project.Map.Property
+import com.example.a5046ass2_project.map.Property
 import com.example.a5046ass2_project.R
 
 

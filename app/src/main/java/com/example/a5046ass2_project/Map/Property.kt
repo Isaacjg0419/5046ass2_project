@@ -1,4 +1,4 @@
-package com.example.a5046ass2_project.Map
+package com.example.a5046ass2_project.map
 
 
 import android.os.Parcel

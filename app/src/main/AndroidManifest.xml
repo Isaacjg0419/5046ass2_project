@@ -54,7 +54,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" /> <!-- map and property detail -->
         <activity
-            android:name=".Map.MapsActivity"
+            android:name=".map.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps">
 
@@ -65,13 +65,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".Map.PropertyDetailActivity" />
-        <activity
-            android:name=".RecycleView.RecycleView"
-            android:exported="true" />
-        <activity
-            android:name=".Retrofit.RetrofitKotlin"
-            android:exported="false" /> <!-- <activity -->
+        <activity android:name=".map.PropertyDetailActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
