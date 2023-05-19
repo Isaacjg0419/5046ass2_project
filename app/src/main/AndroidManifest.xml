@@ -16,8 +16,20 @@
         android:theme="@style/Theme.5046ass2_project"
         tools:targetApi="31">
         <activity
+            android:name=".MainViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".WeatherServiceClient"
+            android:exported="false" />
+        <activity
+            android:name=".WeatherViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".HomeFragment"
+            android:exported="false" />
+        <activity
             android:name=".WishList.model.WishlistActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,11 +57,13 @@
             android:name=".Map.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".Map.PropertyDetailActivity" />
         <activity
