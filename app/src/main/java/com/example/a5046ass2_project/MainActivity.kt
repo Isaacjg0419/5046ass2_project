@@ -1,5 +1,6 @@
 package com.example.a5046ass2_project
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         initNavigationDrawer()
         mainViewModel.getProfileFromRoom()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this,MainActivity::class.java))
     }
 
     override fun onResume() {
