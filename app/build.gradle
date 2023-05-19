@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
 apply plugin: 'kotlin-kapt'
 android {
@@ -64,7 +65,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.5.1'
     implementation 'androidx.room:room-ktx:2.5.1'
     implementation 'androidx.databinding:databinding-runtime:7.1.2'
-    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     kapt 'androidx.room:room-compiler:2.5.1'
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
@@ -83,6 +84,19 @@ dependencies {
     // Google Play services 位置库
     implementation 'com.google.android.gms:play-services-location:18.0.0'
 
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
-
+    // navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    //report chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
