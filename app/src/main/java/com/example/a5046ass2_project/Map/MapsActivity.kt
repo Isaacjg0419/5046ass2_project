@@ -1,13 +1,12 @@
-package com.example.a5046ass2_project.Map
+package com.example.a5046ass2_project.map
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.FrameLayout
+
 import android.widget.SearchView
-import android.widget.TextView
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
+
 import com.example.a5046ass2_project.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -27,8 +26,9 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+
 import com.google.android.gms.location.*
-import com.google.android.gms.maps.*
+
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
 
@@ -79,7 +79,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monashClaytonLatLng, 14f))
         loadJsonDataAndRenderMarkers()
 
-        // 获取并添加实时位置标记
+//        geet and add the current location
         addCurrentLocationMarker()
     }
 
@@ -91,16 +91,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // 用户授予了位置权限，重新获取实时位置并添加标记
+//                ask for current location access
                 addCurrentLocationMarker()
-            } else {
-                // 用户拒绝了位置权限，根据需求进行处理
+//                if user denied the access
                 Toast.makeText(
                     this,
                     "require permission to get current location",
                     Toast.LENGTH_SHORT
                 ).show()
-                // 或者执行其他操作
             }
         }
     }
@@ -122,10 +120,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                // 检查是否成功获取到位置
+//                check get the current location successfully
+
                 if (location != null) {
                     val currentLatLng = LatLng(location.latitude, location.longitude)
-                    currentLocationMarker?.remove() // 移除之前的位置标记
+                    currentLocationMarker?.remove() // remove previous marker
 
                     currentLocationMarker = googleMap.addMarker(
                         MarkerOptions()
@@ -141,7 +140,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 LocationRequest.create(),
                 object : LocationCallback() {
                     override fun onLocationResult(locationResult: LocationResult) {
-                        // 位置更新的回调函数，更新当前位置标记
+                        // update the location
                         val currentLocation = locationResult.lastLocation
                         val currentLatLng =
                             LatLng(currentLocation.latitude, currentLocation.longitude)
@@ -157,7 +156,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 null
             )
         } else {
-            // 如果没有位置权限，请求用户授权
+//             if do not have access,ask the user to give
             requestLocationPermission()
         }
     }
