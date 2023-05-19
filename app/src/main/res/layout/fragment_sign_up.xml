@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".authentication.AuthenticationActivity">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="50dp">
+
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join the Monash Rental Family Right Now"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="50dp"
+            android:text="Email" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password" />
+
+        <EditText
+            android:id="@+id/editTextTextPasswordConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender" />
+
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Spinner>
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth" />
+        <DatePicker
+            android:id="@+id/dateOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"/>
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Sign Up" />
+
+
+    </LinearLayout>
+</LinearLayout>
