@@ -1,7 +1,24 @@
 <resources>
-    <string name="app_name">5046ass2_project</string>
+    <string name="app_name">Monash Rental</string>
     <string name="title_activity_gmaps">GMapsActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Not known</item>
+    </string-array>
+    <string name="menu_home_fragment">Monash Rental</string>
+    <string name="menu_bar_chart_fragment">Report</string>
+    <string name="menu_wish_list_fragment">Wish List</string>
+    <string name="menu_profile_fragment">Profile</string>
+    <string name="menu_logout">Log out</string>
+    <string name="nav_header_title">Monash Rental</string>
+    <string name="nav_header_subtitle">Welcome to join our family</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="search_property">Search Property</string>
     <string name="bar_chart">Bar chart</string>
     <string name="line_chart">Line chart</string>
     <string name="group_by_property_type">Group by Property Type</string>
@@ -10,5 +27,4 @@
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
     <string name="wishlist">Wishlist</string>
-    <string name="menu_logout">Log out</string>
 </resources>
