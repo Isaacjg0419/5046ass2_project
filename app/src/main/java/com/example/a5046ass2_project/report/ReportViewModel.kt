@@ -4,9 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.a5046ass2_project.Map.Property
-import com.example.a5046ass2_project.Map.PropertyDAO
-import com.example.a5046ass2_project.Map.PropertyDatabase
 import com.example.a5046ass2_project.map.Property
 import com.example.a5046ass2_project.map.PropertyDAO
 import com.example.a5046ass2_project.map.PropertyDatabase

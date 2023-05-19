@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.a5046ass2_project.databinding.FragmentLineChartBinding
-import com.example.a5046ass2_project.Map.Property
+import com.example.a5046ass2_project.map.Property
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis

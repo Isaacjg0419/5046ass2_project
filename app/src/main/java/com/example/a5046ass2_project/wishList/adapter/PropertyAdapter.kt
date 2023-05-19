@@ -1,4 +1,4 @@
-package com.example.a5046ass2_project.WishList.adapter
+package com.example.a5046ass2_project.wishList.adapter
 
 import android.view.LayoutInflater
 import android.view.View
