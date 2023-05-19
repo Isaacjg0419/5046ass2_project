@@ -30,6 +30,8 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -79,7 +81,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(monashClaytonLatLng, 14f))
         loadJsonDataAndRenderMarkers()
 
-//        geet and add the current location
+//        get current locations
         addCurrentLocationMarker()
     }
 
@@ -91,9 +93,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                ask for current location access
+
+//                user give location access
                 addCurrentLocationMarker()
-//                if user denied the access
+            } else {
+//if user reject the location access
                 Toast.makeText(
                     this,
                     "require permission to get current location",
@@ -120,11 +124,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-//                check get the current location successfully
-
+//check get the access
                 if (location != null) {
                     val currentLatLng = LatLng(location.latitude, location.longitude)
-                    currentLocationMarker?.remove() // remove previous marker
+//                    remove previous markers
+                    currentLocationMarker?.remove()
 
                     currentLocationMarker = googleMap.addMarker(
                         MarkerOptions()
@@ -135,12 +139,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
             }
 
-            // 注册位置更新的监听器
+// init location listener
             fusedLocationClient.requestLocationUpdates(
                 LocationRequest.create(),
                 object : LocationCallback() {
                     override fun onLocationResult(locationResult: LocationResult) {
-                        // update the location
+//update the  current location marker
                         val currentLocation = locationResult.lastLocation
                         val currentLatLng =
                             LatLng(currentLocation.latitude, currentLocation.longitude)
@@ -156,7 +160,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 null
             )
         } else {
-//             if do not have access,ask the user to give
+// if check without access, ask user to get
             requestLocationPermission()
         }
     }
@@ -179,7 +183,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val price = jsonObject.getInt("price")
                 val room_count = jsonObject.getInt("room_count")
                 val postcode = jsonObject.getInt("postcode")
-
+                val publishDate = SimpleDateFormat(
+                    "yyyy-MM-dd",
+                    Locale.US
+                ).parse(jsonObject.getString("publish_date"))
                 val latLng = LatLng(latitude, longitude)
                 val markerOptions =
                     MarkerOptions().position(latLng).title(description).snippet(address)
@@ -199,6 +206,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     price = price,
                     room_count = room_count,
                     postcode = postcode,
+                    publish_date = publishDate,
                     url = ""
                 )
                 propertyDAO.insert(property)
@@ -211,13 +219,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun setMarkerClickListener(marker: Marker?) {
         googleMap.setOnMarkerClickListener { clickedMarker ->
             val intent = Intent(this@MapsActivity, PropertyDetailActivity::class.java)
-            val markerId = clickedMarker.id.substring(1).toLong() // 解析标记的ID
+//            compile the init id
+            val markerId = clickedMarker.id.substring(1).toLong()
             intent.putExtra("id", markerId)
             startActivity(intent)
             true
         }
     }
-
 
 
     //search method

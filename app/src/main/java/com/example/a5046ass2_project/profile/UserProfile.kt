@@ -4,8 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import java.util.Date
-
-
 @Entity
 data class UserProfile(
     @PrimaryKey
